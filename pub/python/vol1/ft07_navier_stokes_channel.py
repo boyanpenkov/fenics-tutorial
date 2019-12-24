@@ -8,6 +8,7 @@ Incremental Pressure Correction Scheme (IPCS).
 """
 
 from __future__ import print_function
+import matplotlib.pyplot as plt
 from fenics import *
 import numpy as np
 
@@ -115,13 +116,13 @@ for n in range(num_steps):
     # Compute error
     u_e = Expression(('4*x[1]*(1.0 - x[1])', '0'), degree=2)
     u_e = interpolate(u_e, V)
-    error = np.abs(u_e.vector().array() - u_.vector().array()).max()
+    error = np.abs(u_e.vector().get_local() - u_.vector().get_local()).max()
     print('t = %.2f: error = %.3g' % (t, error))
-    print('max u:', u_.vector().array().max())
+    print('max u:', u_.vector().get_local().max())
 
     # Update previous solution
     u_n.assign(u_)
     p_n.assign(p_)
 
 # Hold plot
-interactive()
+plt.show()

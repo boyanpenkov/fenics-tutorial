@@ -9,12 +9,13 @@ The load p is a Gaussian function centered at (0, 0.6).
 
 from __future__ import print_function
 from fenics import *
+#parameters["num_threads"] = 8
 from mshr import *
 import numpy as np
 
 # Create mesh and define function space
 domain = Circle(Point(0, 0), 1)
-mesh = generate_mesh(domain, 64)
+mesh = generate_mesh(domain, 256)
 V = FunctionSpace(mesh, 'P', 2)
 
 # Define boundary condition
@@ -56,7 +57,7 @@ vtkfile_p << p
 import numpy as np
 import matplotlib.pyplot as plt
 tol = 0.001  # avoid hitting points outside the domain
-y = np.linspace(-1 + tol, 1 - tol, 101)
+y = np.linspace(-1 + tol, 1 - tol, 1001)
 points = [(0, y_) for y_ in y]  # 2D points
 w_line = np.array([w(point) for point in points])
 p_line = np.array([p(point) for point in points])

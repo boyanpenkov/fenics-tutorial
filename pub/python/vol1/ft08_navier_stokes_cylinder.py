@@ -8,6 +8,7 @@ Scheme (IPCS).
 """
 
 from __future__ import print_function
+import matplotlib.pyplot as plt
 from fenics import *
 from mshr import *
 import numpy as np
@@ -112,7 +113,7 @@ File('navier_stokes_cylinder/cylinder.xml.gz') << mesh
 
 # Create progress bar
 progress = Progress('Time-stepping')
-set_log_level(PROGRESS)
+set_log_level(LogLevel.PROGRESS)
 
 # Time-stepping
 t = 0
@@ -152,8 +153,8 @@ for n in range(num_steps):
     p_n.assign(p_)
 
     # Update progress bar
-    progress.update(t / T)
-    print('u max:', u_.vector().array().max())
+#    progress.update(t / T) # is this depricated?
+    print('u max:', u_.vector().get_local().max())
 
 # Hold plot
-interactive()
+plt.show()

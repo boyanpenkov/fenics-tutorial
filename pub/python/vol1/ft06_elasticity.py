@@ -9,6 +9,9 @@ its left end and deformed under its own weight.
 
 from __future__ import print_function
 from fenics import *
+import matplotlib.pyplot as plt
+import ufl
+#parameters["num_threads"] = 8
 
 # Scaled variables
 L = 1; W = 0.2
@@ -17,7 +20,7 @@ rho = 1
 delta = W/L
 gamma = 0.4*delta**2
 beta = 1.25
-lambda_ = beta
+lambdaa = beta # python3 flipped out on lambda_
 g = gamma
 
 # Create mesh and define function space
@@ -39,7 +42,7 @@ def epsilon(u):
     #return sym(nabla_grad(u))
 
 def sigma(u):
-    return lambda_*nabla_div(u)*Identity(d) + 2*mu*epsilon(u)
+    return lambdaa*ufl.nabla_div(u)*Identity(d) + 2*mu*epsilon(u)
 
 # Define variational problem
 u = TrialFunction(V)
@@ -69,8 +72,8 @@ u_magnitude = sqrt(dot(u, u))
 u_magnitude = project(u_magnitude, V)
 plot(u_magnitude, 'Displacement magnitude')
 print('min/max u:',
-      u_magnitude.vector().array().min(),
-      u_magnitude.vector().array().max())
+      u_magnitude.vector().get_local().min(),
+      u_magnitude.vector().get_local().max())
 
 # Save solution to file in VTK format
 File('elasticity/displacement.pvd') << u
@@ -78,4 +81,4 @@ File('elasticity/von_mises.pvd') << von_Mises
 File('elasticity/magnitude.pvd') << u_magnitude
 
 # Hold plot
-interactive()
+plt.show()

@@ -12,18 +12,16 @@ The initial condition u_0 is chosen as a Gaussian hill.
 
 from __future__ import print_function
 from fenics import *
+#parameters["num_threads"] = 8
 import matplotlib.pyplot as plt
 import time
 
-import os
-os.environ['OMP_NUM_THREADS'] = '8'
-
 T = 2.0            # final time
-num_steps = 500     # number of time steps
+num_steps = 100     # number of time steps
 dt = T / num_steps # time step size
 
 # Create mesh and define function space
-nx = ny = 640
+nx = ny = 128
 mesh = RectangleMesh(Point(-2, -2), Point(2, 2), nx, ny)
 V = FunctionSpace(mesh, 'P', 1)
 

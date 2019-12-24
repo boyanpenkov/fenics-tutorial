@@ -12,17 +12,18 @@ Test problem is chosen to give an exact solution at all nodes of the mesh.
 
 from __future__ import print_function
 from fenics import *
+#parameters["num_threads"] = 8
 import matplotlib.pyplot as plt
 import numpy as np
 
 T = 2.0            # final time
-num_steps = 10     # number of time steps
+num_steps = 100     # number of time steps
 dt = T / num_steps # time step size
 alpha = 3          # parameter alpha
 beta = 1.2         # parameter beta
 
 # Create mesh and define function space
-nx = ny = 8
+nx = ny = 64
 mesh = UnitSquareMesh(nx, ny)
 V = FunctionSpace(mesh, 'P', 1)
 

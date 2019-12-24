@@ -13,6 +13,7 @@ encapsulates the solver as a Python function.
 """
 
 from __future__ import print_function
+import matplotlib.pyplot as plt
 from fenics import *
 import numpy as np
 
@@ -93,4 +94,5 @@ def test_solver():
 
 if __name__ == '__main__':
     run_solver()
-    interactive()
+    plt.show()
+    

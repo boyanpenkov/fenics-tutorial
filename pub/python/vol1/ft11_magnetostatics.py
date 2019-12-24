@@ -9,6 +9,7 @@ vector potential.
 """
 
 from __future__ import print_function
+import matplotlib.pyplot as plt
 from fenics import *
 from mshr import *
 from math import sin, cos, pi
@@ -100,4 +101,4 @@ vtkfile_A_z << A_z
 vtkfile_B << B
 
 # Hold plot
-interactive()
+plt.show()
