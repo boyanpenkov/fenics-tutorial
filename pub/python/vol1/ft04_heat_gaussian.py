@@ -15,12 +15,15 @@ from fenics import *
 import matplotlib.pyplot as plt
 import time
 
+import os
+os.environ['OMP_NUM_THREADS'] = '8'
+
 T = 2.0            # final time
-num_steps = 50     # number of time steps
+num_steps = 500     # number of time steps
 dt = T / num_steps # time step size
 
 # Create mesh and define function space
-nx = ny = 30
+nx = ny = 640
 mesh = RectangleMesh(Point(-2, -2), Point(2, 2), nx, ny)
 V = FunctionSpace(mesh, 'P', 1)
 
