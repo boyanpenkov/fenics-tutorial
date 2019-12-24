@@ -12,6 +12,7 @@ Test problem is chosen to give an exact solution at all nodes of the mesh.
 
 from __future__ import print_function
 from fenics import *
+import matplotlib.pyplot as plt
 import numpy as np
 
 T = 2.0            # final time
