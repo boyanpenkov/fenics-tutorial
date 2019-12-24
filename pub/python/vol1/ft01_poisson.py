@@ -13,8 +13,11 @@ from __future__ import print_function
 from fenics import *
 import matplotlib.pyplot as plt
 
+import os
+os.environ['OMP_NUM_THREADS'] = '8'
+
 # Create mesh and define function space
-mesh = UnitSquareMesh(8, 8)
+mesh = UnitSquareMesh(256, 256)
 V = FunctionSpace(mesh, 'P', 1)
 
 # Define boundary condition

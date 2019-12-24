@@ -8,6 +8,9 @@ FEniCS tutorial demo program: Nonlinear Poisson equation.
 from __future__ import print_function
 import matplotlib.pyplot as plt
 
+import os
+os.environ['OMP_NUM_THREADS'] = '8'
+
 # Warning: from fenics import * will import both `sym` and
 # `q` from FEniCS. We therefore import FEniCS first and then
 # overwrite these objects.
@@ -29,7 +32,7 @@ print('u =', u_code)
 print('f =', f_code)
 
 # Create mesh and define function space
-mesh = UnitSquareMesh(64, 64)
+mesh = UnitSquareMesh(128, 128)
 V = FunctionSpace(mesh, 'P', 1)
 
 # Define boundary condition
