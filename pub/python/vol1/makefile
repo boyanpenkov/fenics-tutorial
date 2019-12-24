@@ -8,3 +8,9 @@ ft02:
 
 ft03:
 	python3 ft03_heat.py
+
+ft04:
+	python3 ft04_heat_gaussian.py
+
+ft05:
+	python3 ft05_poisson_nonlinear.py

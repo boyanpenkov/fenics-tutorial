@@ -12,6 +12,7 @@ The initial condition u_0 is chosen as a Gaussian hill.
 
 from __future__ import print_function
 from fenics import *
+import matplotlib.pyplot as plt
 import time
 
 T = 2.0            # final time
@@ -65,4 +66,4 @@ for n in range(num_steps):
 
 # Hold plot
 #interactive()
-plot.show()
+plt.show()
