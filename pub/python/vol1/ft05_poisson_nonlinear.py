@@ -29,7 +29,7 @@ print('u =', u_code)
 print('f =', f_code)
 
 # Create mesh and define function space
-mesh = UnitSquareMesh(8, 8)
+mesh = UnitSquareMesh(64, 64)
 V = FunctionSpace(mesh, 'P', 1)
 
 # Define boundary condition
