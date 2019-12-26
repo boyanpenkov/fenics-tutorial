@@ -15,7 +15,7 @@ import numpy as np
 
 # Create mesh and define function space
 domain = Circle(Point(0, 0), 1)
-mesh = generate_mesh(domain, 256)
+mesh = generate_mesh(domain, 128)
 V = FunctionSpace(mesh, 'P', 2)
 
 # Define boundary condition
