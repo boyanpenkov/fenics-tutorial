@@ -86,7 +86,7 @@ from dolfin import *
 # divided into two triangles, we do as follows ::
 
 # Create mesh and define function space
-mesh = UnitSquareMesh(32, 32)
+mesh = UnitSquareMesh(128, 128)
 V = FunctionSpace(mesh, "Lagrange", 1)
 
 # The second argument to :py:class:`FunctionSpace
