@@ -4,7 +4,7 @@ poisson:
 	python3 demo_poisson.py
 
 nonlinear_poisson:
-	python3 demo_nonlinear_poisson.py
+	python3 demo_nonlinear-poisson.py
 
 eigenvalue:
 	python3 demo_eigenvalue.py

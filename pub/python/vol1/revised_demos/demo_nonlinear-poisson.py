@@ -128,7 +128,7 @@ class DirichletBoundary(SubDomain):
 # into two triangles, we do as follows::
 
 # Create mesh and define function space
-mesh = UnitSquareMesh(32, 32)
+mesh = UnitSquareMesh(512, 512)
 File("mesh.pvd") << mesh
 
 V = FunctionSpace(mesh, "CG", 1)
