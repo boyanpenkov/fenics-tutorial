@@ -1,6 +1,7 @@
-all: ft01 ft02 ft03 ft04 ft05 ft06 ft07 ft12
 
-nonfunctioning: ft08 ft09 ft10 ft11
+all: ft01 ft02 ft03 ft04 ft05 ft06 ft07 ft08 ft09 ft12
+
+nonfunctioning: ft10 ft11
 
 ft01:
 	python3 ft01_poisson.py
@@ -12,7 +13,7 @@ ft03:
 	python3 ft03_heat.py
 
 ft04:
-	mpirun -np 8 python3 ft04_heat_gaussian.py
+	mpirun -n 8 python3 ft04_heat_gaussian.py
 
 ft05:
 	python3 ft05_poisson_nonlinear.py
@@ -26,7 +27,7 @@ ft07:
 ft08:
 	python3 ft08_navier_stokes_cylinder.py
 
-ft09: ft08
+ft09:
 	python3 ft09_reaction_system.py
 
 ft10:
